@@ -301,6 +301,7 @@ func (s *Server) Send(cmd string) (string, error) {
 		}
 		if sawMirror {
 			if bytes.Compare(resp.body, trailer) == 0 {
+				log.Println("Resp body:", resp.body)
 				break
 			}
 			return "", ErrInvalidResponseTrailer
